@@ -3,13 +3,20 @@ import { v4 as uuidv4 } from 'uuid'
 import { CheckCircle, Circle, PlusCircle } from 'phosphor-react'
 
 import { Header } from './components/Header'
-import './global.css'
-import styles from './App.module.css'
 import { EmptyTasks } from './components/EmptyTasks'
 import { TaskItem } from './components/TaskItem'
 
+import './global.css'
+import styles from './App.module.css'
+
+interface TaskProps {
+  id: string;
+  title: string;
+  isComplete: boolean;
+}
+
 export function App() {
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState<TaskProps[]>([
     {
       id: uuidv4(),
       title: 'Ler o escopo do desafio',
@@ -49,6 +56,26 @@ export function App() {
 
   const handleCreateNewTask = (event: FormEvent) => {
     event.preventDefault()
+
+    setTasks([...tasks, {id: uuidv4(), title: newTask, isComplete: false}])
+    setNewTask('')
+  }
+
+  const handleCompletedTask = (id: string) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return {...task, isComplete: !task.isComplete}
+      }
+      return task
+    }))
+  }
+
+  const handleDeleteTask = (id: string) => {
+    const taskWithoutDeleteOne = tasks.filter(task => {
+      return task.id !== id
+    })
+
+    setTasks(taskWithoutDeleteOne)
   }
 
   const tasksIsCompleted = tasks.filter((task) => task.isComplete === true)
@@ -93,6 +120,8 @@ export function App() {
                 isComplete={task.isComplete ? <CheckCircle size={20} weight="fill" className={styles.isComplete} /> : <Circle size={20}  />}
                 title={task.title}
                 textComplete={task.isComplete ? styles.textComplete : ''}
+                onDelete={() => handleDeleteTask(task.id)}
+                onCompleted={() => handleCompletedTask(task.id)}
               />              
             ))}
           </ul>
