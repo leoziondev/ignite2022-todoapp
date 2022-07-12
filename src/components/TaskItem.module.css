@@ -1,0 +1,52 @@
+.taskItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  background: var(--gray-500);
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  padding: 0.875rem;
+}
+
+.taskItem > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  padding-right: 45px;
+}
+
+.taskItem p {
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  padding-top: 0.05rem;
+}
+
+.taskItem button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  border: 0;
+  background: transparent;
+}
+
+.taskItem button:first-child {
+  color: var(--blue);
+}
+.taskItem button:first-child:hover {
+  color: var(--purple);
+}
+
+.taskItem button:last-child {
+  color: var(--gray-300);
+  padding: 0.3rem;
+  border-radius: 3px;
+}
+.taskItem button:last-child:hover {
+  color: var(--danger);
+  background: var(--gray-400);
+}
