@@ -13,7 +13,7 @@ __Desafio__: Desenvolvimento de uma aplicação de controle de tarefas no estilo
 - Propriedades;
 - Componentização 
 
-## Como usar este projeto
+### __Como usar este projeto__
 * Clone o projeto com `git clone`
 * Após clonar o projeto, certifique-se de estar dentro da pasta do projeto e rode o comando `yarn` ou `npm install`
 * Suba o servidor Vite rodando o comando `yarn dev` ou `npm run dev` 
