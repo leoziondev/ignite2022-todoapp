@@ -1,0 +1,107 @@
+.mainContainer {
+  max-width: 46rem;
+  margin: -1.56rem auto 0 auto;
+}
+
+.mainContainer ul {
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+
+  margin-bottom: 3.75rem;
+}
+
+.formContainer input {
+  height: 52px;
+  border-color: var(--gray-700);
+  border-radius: 8px;
+  background: var(--gray-500);
+  color: var(--gray-100);
+  padding: 0 1rem;
+
+  flex: 1;
+}
+
+.formContainer input::placeholder {
+  color: var(--gray-300);
+}
+
+.formContainer input:focus {
+  border-color: var(--purple);
+}
+
+.formContainer button {
+  width: 90px;
+  height: 52px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue-dark);
+  color: var(--gray-100);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.formContainer button:not(:disabled):hover {
+  background: var(--blue);
+}
+
+.formContainer button:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statusContainer p {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.statusContainer p:first-child {
+  color: var(--blue);
+}
+
+.statusContainer p:last-child {
+  color: var(--purple);
+}
+
+.statusContainer span {
+  background: var(--gray-400);
+  color: var(--gray-100);
+  border-radius: 25px;
+  padding: 0.175rem 0.675rem;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.isComplete {
+  color: var(--purple);
+}
+
+.isComplete p {
+  color: var(--purple) !important;
+}
+
+.textComplete {
+  color: var(--gray-300) !important;
+  text-decoration: line-through;
+}
+
+@media (max-width: 46rem) {
+  .mainContainer {
+    margin: -1.56rem 0.5rem 0;
+  }
+}
